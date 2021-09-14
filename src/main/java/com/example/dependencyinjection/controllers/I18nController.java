@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -16,7 +17,8 @@ import javax.annotation.PreDestroy;
 
 @Controller
 public class I18nController implements BeanFactoryAware, ApplicationContextAware {
-    private final Logger LOGGER = LoggerFactory.getLogger(I18nController.class);
+	@Autowired
+    private Logger LOGGER;// = LoggerFactory.getLogger(I18nController.class);
     private final Greetings greetingsService;
 
     public I18nController(@Qualifier("i18nService") Greetings greetingsService) {

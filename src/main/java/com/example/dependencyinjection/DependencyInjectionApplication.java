@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 public class DependencyInjectionApplication {
 
     public static void main(String[] args) {
+    	
         ApplicationContext context = SpringApplication.run(DependencyInjectionApplication.class, args);
         MyController myController = (MyController) context.getBean("myController");
         I18nController i18nController = (I18nController) context.getBean("i18nController");
