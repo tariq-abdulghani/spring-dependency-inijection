@@ -1,5 +1,7 @@
 package com.example.dependencyinjection.controllers;
 
+import com.example.dependencyinjection.scope.PrototypeScopedBeen;
+import com.example.dependencyinjection.scope.SingletonScopedBeen;
 import com.example.dependencyinjection.services.Greetings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,13 @@ import javax.annotation.PreDestroy;
 
 @Controller
 public class I18nController implements BeanFactoryAware, ApplicationContextAware {
+	
+	@Autowired
+    private  SingletonScopedBeen singletonScopedBeen;
+    
+    @Autowired
+    private PrototypeScopedBeen prototypeScopedBeen;
+    
 	@Autowired
     private Logger LOGGER;// = LoggerFactory.getLogger(I18nController.class);
     private final Greetings greetingsService;
